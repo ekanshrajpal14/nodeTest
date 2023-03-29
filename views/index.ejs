@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+      #main{
+        
+         width: 100vw;
+         height: 100vh;
+         overflow-x: hidden;
+        
+         
+      }
+      .cards {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        flex-wrap: wrap;
+        
+        padding: 1vw;
+      }
+      .cards div{
+       background-color: aquamarine;
+       width: auto;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       padding: 2vw 3vw;
+       
+      }
+      .cards img{
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+      }
+    </style>
+</head>
+
+<body>
+  <div id="main">
+  <button>Get new user</button>
+  <!-- <div class="card m-4" style="width: 18rem;">
+    <img src="..." class="img card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="temp card-title" id="temp"></h5>
+      <h5 class="card-text text">
+      </h5>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div> -->
+
+  <div class="cards">
+
+  </div>
+
+</div>
+
+      <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity = "sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin = "anonymous" ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js"
+      integrity="sha512-NCiXRSV460cHD9ClGDrTbTaw0muWUBf/zB/yLzJavRsPNUl9ODkUVmUHsZtKu17XknhsGlmyVoJxLg/ZQQEeGA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      var clutter ="";
+      document.querySelector("button").addEventListener("click", function () {
+        axios.get("https://randomuser.me/api/").then(function (dets) {
+          console.log(dets.data.results[0]);
+
+         var div = document.createElement("div");
+  
+         var h1 = document.createElement("h1");
+         var {first,last} = dets.data.results[0].name;
+         var h4 = document.createElement("h4");
+         var img = document.createElement("img");
+         img.src = `${dets.data.results[0].picture.large}`
+         h4.textContent= dets.data.results[0].gender;
+        
+         h1.innerHTML = first +" "+ last;
+         div.appendChild(img);
+         div.appendChild(h1);
+        div.appendChild(h4);
+
+
+         clutter += document.querySelector(".cards").appendChild(div);
+
+        })
+
+      });
+      </script>
+
+
+</body>
+
+</html>
