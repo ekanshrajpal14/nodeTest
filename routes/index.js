@@ -21,14 +21,14 @@ router.post('/create', function (req, res, next) {
     password:req.body.password,
   }
   userModel.create(cr).then(function(de){
-    res.send(de);
+    res.json(de);
   })
 });
 
 
 router.get('/info', function (req, res, next) {
   userModel.find().then(function(de){
-    res.send(de);
+    res.json(de);
   })
 });
 
