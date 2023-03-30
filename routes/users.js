@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/spotifyclone").then(function () {
+mongoose.connect("mongodb://render:Xp5BY@e4jeKg8Y4@nodeTest:13.228.225.19/spotifyclone").then(function () {
   console.log("connect");
 });
 
