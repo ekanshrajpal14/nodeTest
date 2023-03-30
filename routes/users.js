@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+var myconnectionstring = "mongodb://render:Xp5BY@e4jeKg8Y4@nodeTest:13.228.225.19/spotifyclone";
 
-mongoose.connect("mongodb://render:Xp5BY@e4jeKg8Y4@nodeTest:13.228.225.19/spotifyclone").then(function () {
+mongoose.connect(myconnectionstring,{ useNewUrlParser: true, useUnifiedTopology: true }).then(function () {
   console.log("connect");
 });
 
